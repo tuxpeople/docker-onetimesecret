@@ -6,7 +6,7 @@ services:
     deploy:
       restart_policy:
         condition: any
-    image: mcrmonkey/docker-onetimesecret
+    build: .
     links:
     - redis
     ports:
