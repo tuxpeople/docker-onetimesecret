@@ -12,11 +12,9 @@ RUN apt-get -qq update \
 	&& chown ots: /var/lib/onetime \
 	&& /usr/bin/unzip /tmp/onetime.zip -d /var/lib/onetime/ \
 	&& /bin/mv /var/lib/onetime/onetimesecret-master/* /var/lib/onetime/ \
-	&& rm -f /tmp/onetime.zip
-
-WORKDIR /var/lib/onetime
-
-RUN bundle install --frozen --deployment --without=dev \
+	&& rm -f /tmp/onetime.zip \
+	&& cd /var/lib/onetime \
+	&& bundle install --frozen --deployment --without=dev \
 	&& bin/ots init \
 	&& mkdir -p /var/log/onetime /var/run/onetime /var/lib/onetime /etc/onetime \
 	&& chown ots /var/log/onetime /var/run/onetime /var/lib/onetime /etc/onetime \
@@ -25,6 +23,8 @@ RUN bundle install --frozen --deployment --without=dev \
 
 ADD config/config /etc/onetime/config
 ADD config/fortunes /etc/onetime/fortunes
+
+WORKDIR /var/lib/onetime
 
 EXPOSE 7143
 
