@@ -52,5 +52,7 @@ Access it through your browser at `http://localhost:7143`
 
 ### Credit
 
+Based on https://github.com/mcrmonkey/docker-onetimesecret
+
 Some of the configuration and inspiration for this came from https://github.com/carlasouza/docker-onetimesecret
 
