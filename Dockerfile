@@ -34,4 +34,4 @@ COPY config/fortunes /etc/onetime/fortunes
 
 EXPOSE 7143
 
-ENTRYPOINT ["su -c", "bundle exec thin -e dev -R config.ru -p 7143 start", "ots"]
+ENTRYPOINT ["su", "-c", "bundle exec thin -e dev -R config.ru -p 7143 start", "ots"]
