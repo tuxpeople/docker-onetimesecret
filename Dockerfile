@@ -15,7 +15,7 @@ RUN apt-get -qq update \
 	&& chown ots: /var/lib/onetime \
 	&& /usr/bin/unzip /tmp/onetime.zip -d /var/lib/onetime/ \
 	&& /bin/mv /var/lib/onetime/onetimesecret-master/* /var/lib/onetime/ \
-	&& rm -f /tmp/onetime.zip /var/lib/apt/lists/*
+	&& rm -rf /tmp/onetime.zip /var/lib/apt/lists/*
 	
 WORKDIR /var/lib/onetime
 
