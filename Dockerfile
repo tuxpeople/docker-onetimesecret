@@ -1,5 +1,5 @@
 # Dockerfile for One-Time Secret http://onetimesecret.com
-FROM debian:stretch
+FROM debian:buster-slim
 
 LABEL MAINTAINER ant <git@manchestermonkey.co.uk>
 
