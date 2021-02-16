@@ -1,7 +1,7 @@
 # Dockerfile for One-Time Secret http://onetimesecret.com
 FROM debian:buster-slim
 
-LABEL MAINTAINER ant <git@manchestermonkey.co.uk>
+LABEL MAINTAINER Thomas Deutsch <thomas@tuxpeople.org>
 
 ADD https://github.com/onetimesecret/onetimesecret/archive/master.zip /tmp/onetime.zip
 
