@@ -15,7 +15,8 @@ RUN apt-get -qq update \
 	&& mkdir /var/lib/onetime \
 	&& chown ots: /var/lib/onetime \
 	&& /usr/bin/unzip /tmp/onetime.zip -d /var/lib/onetime/ \
-	&& /bin/mv /var/lib/onetime/onetimesecret-master/* /var/lib/onetime/
+	&& /bin/mv /var/lib/onetime/onetimesecret-master/* /var/lib/onetime/ \
+	&& rm -rf /tmp/onetime.zip /var/lib/apt/lists/* 
 	
 WORKDIR /var/lib/onetime
 
@@ -29,7 +30,7 @@ RUN export SSL_CERT_FILE=/tmp/cacert.pem \
 	&& apt-get remove -y --purge ${BUILDPKG} \
 	&& apt-get clean \
 	&& apt-get autoremove -y --purge \
-	&& rm -rf /tmp/onetime.zip /var/lib/apt/lists/* /tmp/cacert.pem
+	&& rm -rf /tmp/cacert.pem
 
 COPY config/config /etc/onetime/config
 COPY config/fortunes /etc/onetime/fortunes
