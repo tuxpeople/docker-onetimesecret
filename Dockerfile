@@ -3,14 +3,14 @@ FROM debian:buster-slim
 
 LABEL MAINTAINER Thomas Deutsch <thomas@tuxpeople.org>
 
-ENV BUILDPKG="build-essential libyaml-dev libevent-dev unzip ruby-dev libssl-dev zlib1g-dev bundler"
+ENV BUILDPKG="build-essential libyaml-dev libevent-dev unzip ruby-dev libssl-dev zlib1g-dev"
 
 ADD https://github.com/onetimesecret/onetimesecret/archive/master.zip /tmp/onetime.zip
 ADD http://curl.haxx.se/ca/cacert.pem /tmp/cacert.pem
 
 # hadolint ignore=DL3008
 RUN apt-get -qq update \
-	&& apt-get install -qq --no-install-recommends zlib1g openssl libxml2 ruby ${BUILDPKG} \
+	&& apt-get install -qq --no-install-recommends zlib1g openssl libxml2 ruby bundler ${BUILDPKG} \
 	&& useradd ots -d /var/lib/onetime \
 	&& mkdir /var/lib/onetime \
 	&& chown ots: /var/lib/onetime \
