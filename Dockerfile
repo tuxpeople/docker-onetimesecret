@@ -3,7 +3,7 @@ FROM debian:buster-slim
 
 LABEL MAINTAINER Thomas Deutsch <thomas@tuxpeople.org>
 
-ENV BUILDPKG="build-essential libyaml-dev libevent-dev unzip ruby-dev libssl-dev zlib1g-dev"
+ENV BUILDPKG="build-essential libyaml-dev libevent-dev unzip ruby-dev libssl-dev zlib1g-dev ca-certificates"
 
 ADD https://github.com/onetimesecret/onetimesecret/archive/master.zip /tmp/onetime.zip
 
