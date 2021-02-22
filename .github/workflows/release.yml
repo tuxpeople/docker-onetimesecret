@@ -114,5 +114,5 @@ jobs:
           for i in $(echo ${{ steps.prep.outputs.tags }} | sed "s/,/ /g")
           do
               GHTAG=$(echo $i | sed "s/quay.io/docker.io/g" | sed "s/${{ env.QUAY_USER }}/${{ env.DOCKER_USER }}/g")
-              skopeo copy --src-creds=${{ env.QUAY_USER }}:${{ secrets.REGISTRY_TOKEN }} --dest-creds=${{ env.DOCKER_USER }}:${{ secrets.DOCKERPASSWORD }} docker://${i} docker://${GHTAG}
+              skopeo copy --all --src-creds=${{ env.QUAY_USER }}:${{ secrets.REGISTRY_TOKEN }} --dest-creds=${{ env.DOCKER_USER }}:${{ secrets.DOCKERPASSWORD }} docker://${i} docker://${GHTAG}
           done
