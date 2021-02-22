@@ -6,7 +6,6 @@ Launch [One-Time Secret](http://onetimesecret.com) as a Docker container
 
 ## Usage
 
-
 Either use `docker-compose up`
 
 or run manually:
