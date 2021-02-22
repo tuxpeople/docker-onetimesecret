@@ -24,6 +24,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       -
+        name: Generate Build-Args
+        id: build-args
+        run: |
+          # echo ::set-output name=build-arg1::"buildarg1"
+          # echo ::set-output name=build-arg2::"buildarg2"
+      -
         name: Checkout
         uses: actions/checkout@v2
       -
