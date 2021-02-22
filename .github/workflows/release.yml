@@ -19,6 +19,16 @@ env:
   QUAY_USER: "tdeutsch"                                              # Which user to use to login to quay.io
   DOCKER_USER: "tdeutsch"                                            # Which user to use to login to DockerHub
 
+#####
+# To rebuild someone else's repo, do this:
+#
+# - New env    REPOSITORY: "githubuser/githubrepo"
+# - Add this to the checkout:
+#        with:
+#          repository: ${{ env.REPOSITORY }}
+# - One may also need to disable hadolint, due to the quality of others Dockerfile
+#####
+
 jobs:
   docker:
     runs-on: ubuntu-latest
