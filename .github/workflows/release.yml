@@ -62,12 +62,6 @@ jobs:
           echo ::set-output name=tags::${TAGS}
           echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
       -
-        name: Generate Build-Args
-        id: build-args
-        run: |
-          # echo ::set-output name=build-arg1::"buildarg1"
-          # echo ::set-output name=build-arg2::"buildarg2"
-      -
         name: Hadolint
         uses: brpaz/hadolint-action@v1.3.1
         with: 
