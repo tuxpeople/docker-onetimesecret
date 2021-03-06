@@ -1,7 +1,8 @@
 # Dockerfile for One-Time Secret http://onetimesecret.com
 
-FROM alpine:latest as PKGGET
+FROM alpine:3.12 as PKGGET
 
+# hadolint ignore=DL3018
 RUN apk --no-cache add zip
 
 ADD https://github.com/onetimesecret/onetimesecret/archive/master.zip /tmp/onetime.zip
@@ -26,6 +27,7 @@ RUN adduser ots -h /var/lib/onetime -D && \
  	cp -R etc/* /etc/onetime/ && \
  	chown ots: /var/lib/onetime/* -R
 
+# hadolint ignore=DL3018
 RUN apk --no-cache --virtual .build-deps add build-base && \
 	bundle install --frozen --deployment --without=dev && \
   bin/ots init && \
