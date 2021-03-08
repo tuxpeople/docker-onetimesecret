@@ -1,6 +1,6 @@
 # Dockerfile for One-Time Secret http://onetimesecret.com
 
-FROM alpine:3.12 as PKGGET
+FROM alpine:3.13.2 as PKGGET
 
 # hadolint ignore=DL3018
 RUN apk --no-cache add zip
