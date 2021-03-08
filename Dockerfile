@@ -11,7 +11,7 @@ RUN /usr/bin/unzip /tmp/onetime.zip -d /extract/
 
 
 
-FROM ruby:2.6-alpine
+FROM ruby:3.0.0-alpine
 
 LABEL MAINTAINER Thomas Deutsch <thomas@tuxpeople.org>
 
