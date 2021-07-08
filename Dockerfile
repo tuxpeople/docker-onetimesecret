@@ -8,7 +8,7 @@ ENV BUILDPKG="build-essential libyaml-dev libevent-dev unzip ruby-dev libssl-dev
 # hadolint ignore=DL3018,DL3003
 RUN adduser ots -h /var/lib/onetime -D && \
  	mkdir -p /var/log/onetime /var/run/onetime /etc/onetime && \
-	apk --no-cache --virtual .build-deps add build-base && \
+	apk --no-cache --virtual .build-deps add build-base git && \
 	gem install bundler:1.12.5 && \
 	git clone git@github.com:onetimesecret/onetimesecret.git && \
 	cd onetimesecret && \
