@@ -10,7 +10,7 @@ RUN adduser ots -h /var/lib/onetime -D && \
  	mkdir -p /var/log/onetime /var/run/onetime /etc/onetime && \
 	apk --no-cache --virtual .build-deps add build-base git && \
 	gem install bundler:1.12.5 && \
-	git clone git@github.com:onetimesecret/onetimesecret.git && \
+	git clone https://github.com/onetimesecret/onetimesecret.git && \
 	cd onetimesecret && \
 	bundle install --frozen && \
   	bin/ots init && \
