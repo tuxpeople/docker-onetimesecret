@@ -12,7 +12,8 @@ RUN adduser ots -h /var/lib/onetime -D && \
 	gem install bundler:1.12.5 && \
 	git clone https://github.com/onetimesecret/onetimesecret.git && \
 	cd onetimesecret && \
-	bundle install --frozen && \
+	rm Gemfile.lock && \
+	bundle install --deployment --without dev && \
   	bin/ots init && \
 	apk del .build-deps
 
