@@ -30,7 +30,7 @@ RUN adduser ots -h /var/lib/onetime -D && \
 # hadolint ignore=DL3018
 RUN apk --no-cache --virtual .build-deps add build-base && \
 	gem install bundler:1.12.5 && \
-	bundle install --frozen --deployment --without=dev && \
+	bundle install --frozen && \
   bin/ots init && \
 	apk del .build-deps
 
