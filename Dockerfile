@@ -11,6 +11,7 @@ RUN adduser ots -h /var/lib/onetime -D && \
 	apk --no-cache --virtual .build-deps add build-base git && \
 	gem install bundler:1.12.5 && \
 	git clone https://github.com/onetimesecret/onetimesecret.git && \
+	git checkout tags/2021-03-17-0.11.0 && \
 	cd onetimesecret && \
 	rm Gemfile.lock && \
 	bundle install && \
