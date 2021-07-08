@@ -13,7 +13,7 @@ RUN adduser ots -h /var/lib/onetime -D && \
 	git clone https://github.com/onetimesecret/onetimesecret.git && \
 	cd onetimesecret && \
 	rm Gemfile.lock && \
-	bundle install --deployment --without dev && \
+	bundle install && \
   	bin/ots init && \
 	apk del .build-deps
 
