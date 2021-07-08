@@ -1,6 +1,6 @@
 # Dockerfile for One-Time Secret http://onetimesecret.com
 
-FROM alpine:3.12 as PKGGET
+FROM alpine:3.14.0 as PKGGET
 
 # hadolint ignore=DL3018
 RUN apk --no-cache add zip
@@ -11,7 +11,7 @@ RUN /usr/bin/unzip /tmp/onetime.zip -d /extract/
 
 
 
-FROM ruby:2.6-alpine
+FROM ruby:3.0.2-alpine
 
 LABEL MAINTAINER Thomas Deutsch <thomas@tuxpeople.org>
 
