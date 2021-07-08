@@ -5,7 +5,7 @@ FROM alpine:3.12 as PKGGET
 # hadolint ignore=DL3018
 RUN apk --no-cache add zip
 
-ADD https://github.com/onetimesecret/onetimesecret/archive/master.zip /tmp/onetime.zip
+ADD https://github.com/onetimesecret/onetimesecret/archive/refs/heads/main.zip /tmp/onetime.zip
 
 RUN /usr/bin/unzip /tmp/onetime.zip -d /extract/
 
