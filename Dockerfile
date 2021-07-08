@@ -5,7 +5,7 @@ WORKDIR /var/lib/onetime
 
 ENV BUILDPKG="build-essential libyaml-dev libevent-dev unzip ruby-dev libssl-dev zlib1g-dev"
 
-# hadolint ignore=DL3018
+# hadolint ignore=DL3018,DL3003
 RUN adduser ots -h /var/lib/onetime -D && \
  	mkdir -p /var/log/onetime /var/run/onetime /etc/onetime && \
 	apk --no-cache --virtual .build-deps add build-base && \
