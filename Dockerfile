@@ -1,8 +1,6 @@
 # Dockerfile for One-Time Secret http://onetimesecret.com
 FROM ruby:3.0.2-alpine
 
-LABEL MAINTAINER Thomas Deutsch <thomas@tuxpeople.org>
-
 WORKDIR /var/lib/onetime
 
 ENV BUILDPKG="build-essential libyaml-dev libevent-dev unzip ruby-dev libssl-dev zlib1g-dev"
