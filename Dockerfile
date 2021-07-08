@@ -1,5 +1,5 @@
 # Dockerfile for One-Time Secret http://onetimesecret.com
-FROM ruby:3.0.2-alpine
+FROM ruby:2.3
 
 WORKDIR /var/lib/onetime
 
@@ -9,12 +9,9 @@ ENV BUILDPKG="build-essential libyaml-dev libevent-dev unzip ruby-dev libssl-dev
 RUN adduser ots -h /var/lib/onetime -D && \
  	mkdir -p /var/log/onetime /var/run/onetime /etc/onetime && \
 	apk --no-cache --virtual .build-deps add build-base git && \
-	gem install bundler:1.12.5 && \
 	git clone https://github.com/onetimesecret/onetimesecret.git && \
 	cd onetimesecret && \
-	git checkout tags/2021-03-17-0.11.0 && \
-	rm Gemfile.lock && \
-	bundle install && \
+	bundle install --frozen --deployment --without=dev && \
   	bin/ots init && \
 	apk del .build-deps
 
@@ -27,4 +24,12 @@ RUN chown ots /var/log/onetime /var/run/onetime /var/lib/onetime /etc/onetime &&
 
 EXPOSE 7143
 
-ENTRYPOINT ["su", "ots", "-c", "bundle exec thin -e dev -R config.ru -p 7143 start"]
+ENTRYPOINT ["su", "ots", "-c", "bundle exec thin -e dev -R config.ru start"]
+
+EXPOSE 3000
+ENV RACK_ENV prod
+ENV ONETIMESECRET_SSL=false \
+    ONETIMESECRET_HOST=localhost:3000 \
+    ONETIMESECRET_SECRET=CHANGEME \
+    ONETIMESECRET_REDIS_URL= \
+    ONETIMESECRET_COLONEL=
