@@ -1,5 +1,5 @@
 # Dockerfile for One-Time Secret http://onetimesecret.com
-FROM ruby:3.3.0
+FROM ruby:3.3.1
 
 WORKDIR /var/lib/onetime
 
