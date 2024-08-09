@@ -11,6 +11,7 @@ RUN adduser ots -h /var/lib/onetime -D && \
 	apk --no-cache --virtual .build-deps add build-base git && \
 	git clone https://github.com/onetimesecret/onetimesecret.git && \
 	cd onetimesecret && \
+	bundle update && \
 	bundle install --frozen --deployment --without=dev && \
   	bin/ots init && \
 	apk del .build-deps
