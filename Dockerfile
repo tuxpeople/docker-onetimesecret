@@ -14,6 +14,7 @@ RUN adduser ots -h /var/lib/onetime -D && \
 	bundle config set deployment true && \
 	bundle config set frozen true && \
 	bundle config set without 'dev' && \
+	bundle lock --update && \
 	bundle install && \
   	bin/ots init && \
 	apk del .build-deps
