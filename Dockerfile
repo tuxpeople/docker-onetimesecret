@@ -5,6 +5,9 @@ WORKDIR /var/lib/onetime
 
 ENV BUILDPKG="build-essential libyaml-dev libevent-dev unzip ruby-dev libssl-dev zlib1g-dev"
 
+COPY config/config /etc/onetime/config
+COPY config/fortunes /etc/onetime/fortunes
+
 # hadolint ignore=DL3018,DL3003
 RUN adduser ots -h /var/lib/onetime -D && \
  	mkdir -p /var/log/onetime /var/run/onetime /etc/onetime && \
@@ -17,12 +20,8 @@ RUN adduser ots -h /var/lib/onetime -D && \
 	bundle lock --update && \
 	bundle install && \
   	bin/ots init && \
-	apk del .build-deps
-
-COPY config/config /etc/onetime/config
-COPY config/fortunes /etc/onetime/fortunes
-
-RUN chown ots /var/log/onetime /var/run/onetime /var/lib/onetime /etc/onetime && \
+	apk del .build-deps && \
+	chown ots /var/log/onetime /var/run/onetime /var/lib/onetime /etc/onetime && \
  	cp -R etc/* /etc/onetime/ && \
  	chown ots: /var/lib/onetime/* -R
 
