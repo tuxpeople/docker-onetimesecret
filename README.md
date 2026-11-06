@@ -1,3 +1,8 @@
+> [!IMPORTANT]
+> **This image is no longer maintained, use the official image instead:** [`onetimesecret/onetimesecret`](https://hub.docker.com/r/onetimesecret/onetimesecret) or [`ghcr.io/onetimesecret/onetimesecret`](https://github.com/onetimesecret/onetimesecret/pkgs/container/onetimesecret). It is multi-arch (amd64, arm64), runs as non-root and follows the upstream releases; see the [upstream Docker documentation](https://github.com/onetimesecret/onetimesecret#readme) for configuration.
+>
+> The last image here (`latest`, 2021-03) stays available but gets no updates. This repository is archived.
+
 # onetimesecret
 ![Github Workflow Badge](https://github.com/tuxpeople/docker-onetimesecret/actions/workflows/release.yml/badge.svg)
 ![Github Last Commit Badge](https://img.shields.io/github/last-commit/tuxpeople/docker-onetimesecret)
